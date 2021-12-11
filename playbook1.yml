@@ -1,15 +1,15 @@
 ---
-- hosts: webservers
+- hosts: Ed_AnsibleHost2_Prod_SWARMMaster
   become: true
   become_user: root
   tasks:
-  - name: install httpd
+  - name: Install httpd server 
     yum: name=httpd state=present
-  - name: start httpd
+  - name: Start the httpd server
     service: name=httpd state=started
-  - name: deploy html file
+  - name: Deploy Sonal's html file
     copy: src=index.html dest=/var/www/html
-    notify: restart httpd
+    notify: Restarting the httpd server ....
   handlers:
-  - name: restart httpd
+  - name: Restart the httpd server
     service: name=httpd state=restarted
