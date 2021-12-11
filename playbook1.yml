@@ -9,7 +9,7 @@
     service: name=httpd state=started
   - name: Deploy Sonal's html file
     copy: src=index.html dest=/var/www/html
-    notify: Restarting the httpd server ....
+    notify: Restart the httpd server
   handlers:
   - name: Restart the httpd server
     service: name=httpd state=restarted
